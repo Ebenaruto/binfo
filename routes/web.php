@@ -17,10 +17,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::view('pageAdmin','pageAdmin');
 //  Route::get('/', function () {
 //   return view('accueil'); });
 
 Auth::routes();
 
-// Route::get('/home', 'HomeController@index')->name('home');
- 
+Route::get('/home', 'HomeController@index')->name('home');
+
+//Rubrique
+
+Route::get('rubriques/politique', 'RubriquesController@politique');
+
+Route::get('rubriques/economie', 'RubriquesController@economie');
+
+//Admin
+
+Route::get('admin/enregistrer', 'AdminsController@enregistrer');
