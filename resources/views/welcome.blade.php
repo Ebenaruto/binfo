@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,6 +19,57 @@
     <link rel="stylesheet" href="style.css">
 
 </head>
+ <div id="app">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+            <div class="container">
+                <a class="navbar-brand" href="{{ url('/') }}">
+                   
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="navbar-nav mr-auto">
+
+                    </ul>
+
+                    <!-- Right Side Of Navbar -->
+                    <ul class="navbar-nav ml-auto">
+                        <!-- Authentication Links -->
+                        @guest
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            </li>
+                            @if (Route::has('register'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                </li>
+                            @endif
+                        @else
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        @endguest
+                    </ul>
+                </div>
+            </div>
+        </nav>
 
 <body>
     <!-- Preloader -->
@@ -74,10 +126,10 @@
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li class="active"><a href="index.html">Accueil</a></li>
-                                    <li><a href="#">Politique</a></li>
-                                    <li><a href="#">Economie</a></li>
-                                    <li><a href="#">Société</a></li>
+                                    <li><a href="/">Accueil</a></li>
+                                    <li><a href="/rubriques/politique">Politique</a></li>
+                                    <li><a href="/rubriques/economie">Economie</a></li>
+                                    <li><a href="/rubriques/societe">Société</a></li>
                                     <li><a href="#">Coopération</a></li>
                                     <li><a href="#">Culture</a></li>
                                     <li><a href="#">Internationale</a></li>
@@ -130,14 +182,16 @@
 
         <div class="hero-single-section">
             <!-- Single Welcome Post -->
+                         
+           
             <div class="single-welcome-post bg-img item2 wow fadeInUp" data-wow-delay="400ms" style="background-image: url(img/bg-img/2.jpg);">
                 <!-- Content -->
                 <div class="welcome-post-content">
                     <!-- Single Blog Post -->
                     <div class="single-blog-post white">
                         <div class="blog-content">
-                            <a href="#" class="post-tag">Featured</a>
-                            <a href="#" class="post-title">Spain: Take a virtual tour</a>
+                        <a href="#" class="post-tag">jfnrejj</a>
+                        <p>paragraphe</p>
                             <div class="post-meta">
                                 <a href="#"><img src="img/core-img/author.png" alt=""> By James Smith</a>
                                 <a href="#"><img src="img/core-img/calender.png" alt=""> July 23, 2018</a>
@@ -178,159 +232,69 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
-    <!-- ##### Hero Area End ##### -->
-
-    <!-- ##### Tabs Area Start ##### -->
    
-    <!-- ##### Tabs Area End ##### -->
-
+ @foreach ($actualites as $actualite)
     <!-- ##### Travel Videos Area Start ##### -->
     <section class="travel-videos-area">
         <div class="container">
             <div class="travel-videos-content">
                 <div class="row">
                     <div class="col-12">
-                        <div class="section-heading wow fadeInUp" data-wow-delay="200ms">
-                            <h2>Travel Videos</h2>
-                        </div>
-                    </div>
-                </div>
+                        
+                        
 
-                <div class="row">
-                    <div class="col-12 col-lg-6">
-                        <!-- Single Welcome Post -->
-                        <div class="single-welcome-post style-2 bg-img mb-30 wow fadeInUp" data-wow-delay="300ms" style="background-image: url(img/bg-img/1.jpg);">
-                            <!-- Play Button -->
-                            <a href="#" class="video-play-btn"><i class="fa fa-play"></i></a>
-                            <!-- Content -->
-                            <div class="welcome-post-content">
-                                <!-- Single Blog Post -->
-                                <div class="single-blog-post white">
-                                    <div class="blog-content">
-                                        <a href="#" class="post-tag">Featured</a>
-                                        <a href="#" class="post-title">Watch a tiny cat taking a bath</a>
-                                        <div class="post-meta">
-                                            <a href="#"><img src="img/core-img/author.png" alt=""> By James Smith</a>
-                                            <a href="#"><img src="img/core-img/calender.png" alt=""> July 23, 2018</a>
-                                            <a href="#"><img src="img/core-img/chat.png" alt=""> 5</a>
-                                            <a href="#"><img src="img/core-img/like.png" alt=""> 12k</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="col-12 col-lg-6">
-                        <div class="row">
-
+                               
+                                    
+                                
                             <!-- Single Blog Post -->
-                            <div class="col-md-6">
-                                <div class="single-blog-post style3 mb-30 wow fadeInUp" data-wow-delay="400ms">
-                                    <div class="blog-thumb mb-30">
-                                        <img src="img/bg-img/8.jpg" alt="">
-                                        <!-- Play Button -->
-                                        <a href="https://www.youtube.com/watch?v=0aNNYEUARAk" class="video-play-btn style2"><i class="fa fa-play"></i></a>
-                                    </div>
-                                    <div class="blog-content">
-                                        <a href="#" class="post-tag">Featured</a>
-                                        <a href="#" class="post-title">New York Trip</a>
-                                        <div class="post-meta d-flex justify-content-between">
-                                            <a href="#"><img src="img/core-img/calendar2.png" alt=""> July 23, 2018</a>
-                                            <div class="d-flex">
-                                                <a href="#"><img src="img/core-img/chat2.png" alt=""> 5</a>
-                                                <a href="#"><img src="img/core-img/like2.png" alt=""> 12k</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <div class="col-md-4">
+                                <div class="single-blog-post style3 mb-30 wow fadeInUp" >
 
-                            <!-- Single Blog Post -->
-                            <div class="col-md-6">
-                                <div class="single-blog-post style3 mb-30 wow fadeInUp" data-wow-delay="500ms">
-                                    <div class="blog-thumb mb-30">
-                                        <img src="img/bg-img/9.jpg" alt="">
-                                        <!-- Play Button -->
-                                        <a href="https://www.youtube.com/watch?v=0aNNYEUARAk" class="video-play-btn style2"><i class="fa fa-play"></i></a>
-                                    </div>
                                     <div class="blog-content">
-                                        <a href="#" class="post-tag">Featured</a>
-                                        <a href="#" class="post-title">Coffee in Paris</a>
+                                        <a href="#" class="post-title">{{$actualite->Titre}}</a>
+                                    </div>
+                                    <div class="post-meta flex-column justify-content-between">
+                                         
+                                        <img src="{{asset('storage/' . $actualite->photo)}}" alt="" width="800" class="rounded">
+                                        <!-- Play Button -->
+                                        <p class="border-bottom">{{$actualite->Contenu}}<br><a href="" class="text-primary">lire la suite</a></p>
+                                       
+                                    </div>
+                                    <div class="post-meta d-flex justify-content-between">
+                                
+                                    </div>
+                                   
+                                    <div class="blog-content">
+                                        
+                                    
+                                     
                                         <div class="post-meta d-flex justify-content-between">
-                                            <a href="#"><img src="img/core-img/calendar2.png" alt=""> July 23, 2018</a>
+                                       
+                                        <a href="#"><img src="img/core-img/calendar2.png" alt="">{{$actualite->created_at}}</a>
                                             <div class="d-flex">
-                                                <a href="#"><img src="img/core-img/chat2.png" alt=""> 5</a>
-                                                <a href="#"><img src="img/core-img/like2.png" alt=""> 12k</a>
-                                            </div>
+                                         </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                           
+                       
 
-                            <!-- Single Blog Post -->
-                            <div class="col-md-6">
-                                <div class="single-blog-post style3 mb-30 wow fadeInUp" data-wow-delay="600ms">
-                                    <div class="blog-thumb mb-30">
-                                        <img src="img/bg-img/10.jpg" alt="">
-                                        <!-- Play Button -->
-                                        <a href="https://www.youtube.com/watch?v=0aNNYEUARAk" class="video-play-btn style2"><i class="fa fa-play"></i></a>
-                                    </div>
-                                    <div class="blog-content">
-                                        <a href="#" class="post-tag">Featured</a>
-                                        <a href="#" class="post-title">Summer Holiday</a>
-                                        <div class="post-meta d-flex justify-content-between">
-                                            <a href="#"><img src="img/core-img/calendar2.png" alt=""> July 23, 2018</a>
-                                            <div class="d-flex">
-                                                <a href="#"><img src="img/core-img/chat2.png" alt=""> 5</a>
-                                                <a href="#"><img src="img/core-img/like2.png" alt=""> 12k</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Single Blog Post -->
-                            <div class="col-md-6">
-                                <div class="single-blog-post style3 mb-30 wow fadeInUp" data-wow-delay="700ms">
-                                    <div class="blog-thumb mb-30">
-                                        <img src="img/bg-img/11.jpg" alt="">
-                                        <!-- Play Button -->
-                                        <a href="https://www.youtube.com/watch?v=0aNNYEUARAk" class="video-play-btn style2"><i class="fa fa-play"></i></a>
-                                    </div>
-                                    <div class="blog-content">
-                                        <a href="#" class="post-tag">Featured</a>
-                                        <a href="#" class="post-title">Discover the islands</a>
-                                        <div class="post-meta d-flex justify-content-between">
-                                            <a href="#"><img src="img/core-img/calendar2.png" alt=""> July 23, 2018</a>
-                                            <div class="d-flex">
-                                                <a href="#"><img src="img/core-img/chat2.png" alt=""> 5</a>
-                                                <a href="#"><img src="img/core-img/like2.png" alt=""> 12k</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+     @endforeach
     <!-- ##### Travel Videos Area End ##### -->
 
     
     <!-- ##### Small Videos Area End ##### -->
 
-    <!-- ##### Big Add Area Start ##### -->
-    <div class="big-add-area mb-100 wow fadeInUp" data-wow-delay="200ms">
-        <div class="container-fluid">
-            <a href="#"><img src="img/bg-img/big-add.png" alt=""></a>
-        </div>
-    </div>
+   
 
 
     <!-- ##### Footer Area Start ##### -->
@@ -339,19 +303,7 @@
             <div class="row justify-content-between">
                 <!-- Footer Content -->
                 <div class="col-12 col-lg-4">
-                    <div class="footer-content">
-                        <!-- Logo -->
-                        <a href="index.html" class="foo-logo"><img src="img/core-img/logo.png" alt=""></a>
-                        <p>Donec cursus eros et risus scelerisque, sit amet ultrices arcu scelerisque. Sed consequat fermentum turpis, vulputate maximus.Donec cursus eros et risus scelerisque, sit amet ultrices arcu scelerisque. Sed consequat fermentum turpis, vulputate maximus</p>
-                        <div class="footer-social-info d-flex">
-                            <a href="#"><i class="fa fa-pinterest"></i></a>
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-dribbble"></i></a>
-                            <a href="#"><i class="fa fa-behance"></i></a>
-                            <a href="#"><i class="fa fa-linkedin"></i></a>
-                        </div>
-                    </div>
+                  
                 </div>
                 <!-- Footer Content -->
                 <div class="col-12 col-lg-7 col-xl-6">
@@ -385,18 +337,11 @@
                         </div>
 
                         <!-- Video Catagory -->
-                        <div class="video-catagory">
-                            <h5 class="widget-title">Video Categories</h5>
-                            <ul>
-                                <li><a href="#"><span>Travel</span> <span>20</span></a></li>
-                                <li><a href="#"><span>Technology</span> <span>10</span></a></li>
-                                <li><a href="#"><span>Fashion</span> <span>71</span></a></li>
-                                <li><a href="#"><span>Animals</span> <span>15</span></a></li>
-                            </ul>
-                        </div>
+                      
                     </div>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-12">
                     <!-- Copywrite Text -->

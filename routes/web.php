@@ -13,9 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'RubriquesController@index');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::view('pageAdmin','pageAdmin');
 //  Route::get('/', function () {
@@ -27,10 +28,16 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //Rubrique
 
-Route::get('rubriques/politique', 'RubriquesController@politique');
 
-Route::get('rubriques/economie', 'RubriquesController@economie');
+Route::get('rubriques/politique', 'AdminsController@politique');
+
+Route::get('rubriques/economie', 'AdminsController@economie');
 
 //Admin
 
-Route::get('admin/enregistrer', 'AdminsController@enregistrer');
+Route::get('admin/enregistrer', 'AdminsController@create');
+Route::get('admin', 'AdminsController@index');
+Route::get('admin/show', 'AdminsController@show');
+Route::post('admin', 'AdminsController@store');
+Route::get('admin/{actualite}/edit', 'AdminsController@edit');
+Route::patch('admin/{actualite}','AdminsController@update'); 

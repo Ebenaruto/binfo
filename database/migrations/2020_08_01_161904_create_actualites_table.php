@@ -19,6 +19,7 @@ class CreateActualitesTable extends Migration
             $table->string('Titre');
             $table->string('Auteur');
             $table->string('Contenu');
+            $table->string('photo')->nullable();
             $table->timestamps();
         });
     }
