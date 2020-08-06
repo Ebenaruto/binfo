@@ -15,11 +15,7 @@ class CreateCategoriesTable extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->string('Politique');
-            $table->string('Economire');
-            $table->string('Societe');
-            $table->string('Cooperation');
-            $table->string('Culture');
+            $table->string('categorie');
             $table->timestamps();
         });
     }

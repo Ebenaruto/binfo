@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Actualite;
+use App\Categorie;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -21,8 +23,11 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Actualite $actualite)
     {
-        return view('home');
+        $actualites = Actualite::all();
+        $categories= Categorie::all();
+
+        return view('/admin.enregistrer',compact('actualite','categories'));
     }
 }
