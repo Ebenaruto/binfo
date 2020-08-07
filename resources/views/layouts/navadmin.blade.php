@@ -79,8 +79,8 @@
                                     <li><a href="/rubriques/politique">Politique</a></li>
                                     <li><a href="/rubriques/economie">Economie</a></li>
                                     <li><a href="/rubriques/societe">Société</a></li>
-                                    <li><a href="#">Coopération</a></li>
-                                    <li><a href="#">Culture</a></li>
+                                    <li><a href="/rubriques/cooperation">Coopération</a></li>
+                                    <li><a href="/rubriques/culture">Culture</a></li>
                                     <li><a href="#">Internationale</a></li>
                                      <li><a href="/admin/enregistrer">Ajouter une Actualité</a></li>
                                     {{-- <li><a href="contact.html">Contact</a></li>  --}}

@@ -32,6 +32,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('rubriques/politique', 'AdminsController@politique');
 
 Route::get('rubriques/economie', 'AdminsController@economie');
+Route::get('rubriques/societe', 'AdminsController@societe');
+Route::get('rubriques/cooperation', 'AdminsController@cooperation');
+Route::get('rubriques/culture', 'AdminsController@culture');
+
 
 //Admin
 
