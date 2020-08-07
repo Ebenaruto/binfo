@@ -67,9 +67,10 @@ class AdminsController extends Controller
 
     public function politique(){
 
-            $actualites= Actualite::politique()
+            $actualites= Actualite::politique();
+            
         
-            return view('rubriques.politique');
+            return view('rubriques.politique',compact('actualites'));
             
     }
 
@@ -77,9 +78,33 @@ class AdminsController extends Controller
 
     public function economie()
     {
+        $actualites = Actualite::economie();
 
-        return \view('rubriques.economie');
+        return \view('rubriques.economie',compact('actualites'));
+    }
+
+    public function societe()
+    {
+        $actualites = Actualite::societe();
+
+        return \view('rubriques.societe', compact('actualites'));
+    }
+
+    public function cooperation()
+    {
+        $actualites = Actualite::cooperation();
+
+        return \view('rubriques.cooperation', compact('actualites'));
+    }
+
+    public function culture()
+    {
+        $actualites = Actualite::culture();
+
+        return \view('rubriques.culture', compact('actualites'));
     } 
+
+    
 
     private function validator(){
 
